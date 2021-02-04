@@ -1,6 +1,7 @@
 name: Groups
 channels:
   - defaults
+  - esri
 dependencies:
   - arcgis
   - jupyterlab=2
