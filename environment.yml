@@ -111,7 +111,6 @@ dependencies:
   - traitlets=4.3.3=py38_0
   - urllib3=1.25.10=py_0
   - vc=14.1=h0510ff6_4
-  - vs2015_runtime=14.16.27012=hf0eaf9b_0
   - wcwidth=0.2.5=py_0
   - webencodings=0.5.1=py38_1
   - wheel=0.35.1=py_0
