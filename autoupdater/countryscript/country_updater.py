@@ -37,8 +37,8 @@ class Country_Updater:
         self.temp_df.to_csv(filename)
         item_id = "a988ac7da45747519292b67b05ff288a"
         item = self.gis.content.get(item_id)
-        
-        sys.stdout = open(os.devnull, 'w')
+
+        sys.stdout = open(os.devnull, "w")
         overwrite_output = OverwriteFS.overwriteFeatureService(
             item, updateFile=filename, touchItems=True, verbose=True
         )
