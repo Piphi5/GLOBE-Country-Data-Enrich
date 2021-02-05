@@ -17,7 +17,7 @@ jobs:
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         $CONDA/bin/conda env update --file environment.yml --name base
     - name: Check formatting
-      run: black --check --diff ./
+      run: $CONDA/bin/black --check --diff ./
     - name: Run Pytest
       run: |
         $CONDA/bin/pytest -v -s autoupdater/tests --username=${{secrets.USERNAME}} --password=${{secrets.PASSWORD}}  
