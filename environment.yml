@@ -1,11 +1,11 @@
 name: Groups
 channels:
   - defaults
-  - esri
 dependencies:
   - arcgis
   - jupyterlab=2
   - nodejs
   - pytest
   - pandas
+  - black
 prefix: C:\Users\piphi\anaconda3\envs\Groups
