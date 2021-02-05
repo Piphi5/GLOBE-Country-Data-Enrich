@@ -1,10 +1,14 @@
 name: cronjob
 
-on: [push, pull_request]
+# Controls when the action will run. Triggers the workflow once every day at 14:00 UTC
+on:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
 
     steps:
     - uses: actions/checkout@v2
