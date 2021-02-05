@@ -1,3 +1,5 @@
+import sys, os
+
 from arcgis.gis import GIS
 from arcgis import features
 from arcgis.features import GeoAccessor
@@ -35,9 +37,12 @@ class Country_Updater:
         self.temp_df.to_csv(filename)
         item_id = "a988ac7da45747519292b67b05ff288a"
         item = self.gis.content.get(item_id)
+        
+        sys.stdout = open(os.devnull, 'w')
         overwrite_output = OverwriteFS.overwriteFeatureService(
             item, updateFile=filename, touchItems=True, verbose=True
         )
+        sys.stdout = sys.__stdout__
 
         delete_output = self.temp_layer.delete()
         return overwrite_output["success"], delete_output
