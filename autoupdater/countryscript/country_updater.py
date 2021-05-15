@@ -10,15 +10,18 @@ filename = "Data.csv"
 
 
 class Country_Updater:
-    def __init__(self, username, password):
+    def __init__(self, protocol, inputid, outputid, username, password):
         self.gis = GIS(
             url="https://igestrategies.maps.arcgis.com",
             username=username,
             password=password,
         )
+        self.inputid = inputid
+        self.outputid = outputid
+        self.filename = f"{protocol}CountryEnriched.csv"
 
     def get_data(self):
-        mhm_item = self.gis.content.get(itemid="2793f3d9c4d4447ea4f21b3ad74965d4")
+        mhm_item = self.gis.content.get(itemid=self.inputid)
         countries_item = self.gis.content.get(itemid="2b93b06dc0dc4e809d3c8db5cb96ba69")
         self.temp_layer = features.analysis.join_features(
             target_layer=mhm_item.layers[0],
@@ -33,10 +36,12 @@ class Country_Updater:
 
         return self.temp_df
 
+    def to_csv(self):
+        self.temp_df.to_csv(filename)
+
     def update_layers(self):
         self.temp_df.to_csv(filename)
-        item_id = "a988ac7da45747519292b67b05ff288a"
-        item = self.gis.content.get(item_id)
+        item = self.gis.content.get(self.outputid)
 
         sys.stdout = open(os.devnull, "w")
         overwrite_output = OverwriteFS.overwriteFeatureService(

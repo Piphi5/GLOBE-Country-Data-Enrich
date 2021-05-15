@@ -30,21 +30,20 @@ if not __name__ == "__main__":
 
 def overwriteFeatureService(item, updateFile=None, touchItems=True, verbose=False):
     """Function: overwriteFeatureService( <item>[, <updateFile>[, <touchItems>[, <verbose>]]])
-Overwrites an Existing Feature Service with new Data matching Schema of data used during initial Publication.
-If updateFile is not included, this function will only touch the Service item to update its last modified date.
-* Note * If Views have been created that reference the Service, this function will also touch the View items to update
-their last mondified date.
-Returns Dictionary containing update success status and an Item list of Items altered and their status.
-Or
-Exception is raised when a critial obsticle is reached.
-          <item>: (required) The Hosted Feature Service 'arcgis.gis.item' object you wish to update.
-    <updateFile>: (optional) The File Path and/or Name of the file, or URL, to overwrite Service data with.
-                             Default: None, only 'Touch' the Feature Service Item if allowed.
-    <touchItems>: (optional) 'Touch' Feature Service Item (if no <updateFile>) and related Views, to refresh last modified date?
-                             Default: True
-       <verbose>: (optional) Display progress actions and results?
-                             Default: False, just return results.
-"""
+    Overwrites an Existing Feature Service with new Data matching Schema of data used during initial Publication.
+    If updateFile is not included, this function will only touch the Service item to update its last modified date.
+    * Note * If Views have been created that reference the Service, this function will also touch the View items to update
+    their last mondified date.
+    Returns Dictionary containing update success status and an Item list of Items altered and their status.
+    Or
+    Exception is raised when a critial obsticle is reached.
+              <item>: (required) The Hosted Feature Service 'arcgis.gis.item' object you wish to update.
+        <updateFile>: (optional) The File Path and/or Name of the file, or URL, to overwrite Service data with.
+                                 Default: None, only 'Touch' the Feature Service Item if allowed.
+        <touchItems>: (optional) 'Touch' Feature Service Item (if no <updateFile>) and related Views, to refresh last modified date?
+                                 Default: True
+           <verbose>: (optional) Display progress actions and results?
+                                 Default: False, just return results."""
 
     def touchItem(item, message, outcome):
         if verbose:
