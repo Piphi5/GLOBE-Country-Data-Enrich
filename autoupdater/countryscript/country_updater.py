@@ -6,7 +6,6 @@ from arcgis.features import GeoAccessor
 from autoupdater.utils import OverwriteFS
 
 temp_layer_name = "Temp_layer"
-filename = "Data.csv"
 
 
 class Country_Updater:
@@ -40,14 +39,12 @@ class Country_Updater:
         self.temp_df.to_csv(filename)
 
     def update_layers(self):
-        self.temp_df.to_csv(filename)
+        self.temp_df.to_csv(self.filename)
         item = self.gis.content.get(self.outputid)
 
-        sys.stdout = open(os.devnull, "w")
         overwrite_output = OverwriteFS.overwriteFeatureService(
-            item, updateFile=filename, touchItems=True, verbose=True
+            item, updateFile=self.filename, touchItems=True, verbose=True
         )
-        sys.stdout = sys.__stdout__
 
         delete_output = self.temp_layer.delete()
         return overwrite_output["success"], delete_output
