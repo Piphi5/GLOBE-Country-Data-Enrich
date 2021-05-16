@@ -30,7 +30,8 @@ class Country_Updater:
         )
         self.temp_df = GeoAccessor.from_layer(self.temp_layer.layers[0])
         self.temp_df = self.temp_df.drop(
-            labels=["AFF_ISO", "ISO", "Join_Count", "OBJECTID", "TARGET_FID"], axis=1
+            labels=["AFF_ISO", "ISO", "Join_Count", "OBJECTID", "TARGET_FID", "SHAPE"],
+            axis=1,
         )
 
         return self.temp_df
