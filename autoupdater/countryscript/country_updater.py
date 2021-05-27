@@ -37,20 +37,6 @@ class Country_Updater:
             axis=1,
         )
 
-        convert_to_datetime = np.vectorize(
-            lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
-        )
-
-        if type(self.temp_df.loc[0, "measuredDate"]) is str:
-            self.temp_df["measuredDate"] = convert_to_datetime(
-                df["measuredDate"].to_numpy()
-            )
-
-        protocol = self.temp_df.loc[0, "protocol"]
-        measured_at = protocol.replace("_", "") + "MeasuredAt"
-        if type(self.temp_df.loc[0, measured_at]) is str:
-            self.temp_df[measured_at] = convert_to_datetime(df[measured_at].to_numpy())
-
         return self.temp_df
 
     def to_csv(self):
