@@ -1,6 +1,7 @@
 from datetime import datetime
 import numpy as np
 import sys, os
+import pandas as pd
 
 
 from arcgis.gis import GIS
@@ -26,9 +27,10 @@ class Country_Updater:
         item = self.gis.content.get(itemid=self.inputid)
         countries_item = self.gis.content.get(itemid="2b93b06dc0dc4e809d3c8db5cb96ba69")
         self.temp_layer = features.analysis.join_features(
-            target_layer=item.layers[0],
-            join_layer=countries_item.layers[0],
+            target_layer=item,
+            join_layer=countries_item,
             spatial_relationship="intersects",
+            join_operation="JoinOneToMany",
             output_name=temp_layer_name,
         )
         self.temp_df = GeoAccessor.from_layer(self.temp_layer.layers[0])
@@ -56,11 +58,3 @@ class Country_Updater:
     def run(self):
         self.get_data()
         self.update_layers()
-
-
-if __name__ == "__main__":
-    import sys
-
-    username, password = sys.argv
-    updater = Country_Updater(username, password)
-    updater.run()
