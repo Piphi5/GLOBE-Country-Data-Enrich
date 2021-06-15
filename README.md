@@ -1,5 +1,6 @@
 # MHM-Country-Demo
 [![CI](https://github.com/Piphi5/MHM-Country-Demo/actions/workflows/ci.yml/badge.svg)](https://github.com/Piphi5/MHM-Country-Demo/actions/workflows/ci.yml)
+[![cronjob](https://github.com/Piphi5/GLOBE-Country-Data-Enrich/actions/workflows/cron.yml/badge.svg)](https://github.com/Piphi5/GLOBE-Country-Data-Enrich/actions/workflows/cron.yml)
 
 This repository contains Python scripts that automatically enrich GLOBE Observer Mosquito Habitat Mapper and Land Cover data with the country that each entry was recorded in.
 
