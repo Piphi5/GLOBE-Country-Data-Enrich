@@ -3,7 +3,7 @@ channels:
   - defaults
   - esri
 dependencies:
-  - arcgis
+  - arcgis==1.8.5.post3
   - jupyterlab=2
   - nodejs
   - pytest
