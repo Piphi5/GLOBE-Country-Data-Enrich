@@ -1,4 +1,4 @@
-name: Groups
+name: country-enrich
 channels:
   - defaults
   - esri
@@ -10,4 +10,4 @@ dependencies:
   - pytest
   - pandas
   - black
-prefix: C:\Users\piphi\anaconda3\envs\Groups
+prefix: C:\Users\piphi\anaconda3\envs\country-enrich
