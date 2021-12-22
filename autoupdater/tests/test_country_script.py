@@ -11,7 +11,7 @@ def updater(username, password):
     updater = Country_Updater(
         "MosquitoHabitatMapper",
         "ae4990333e9f41f489550ddbe16a9d0f",
-        "4e8bdb70b3d6424b8831e9cc621cf3b6",
+        "8bc5b0ac24d3474e9ab6ce2bfb4f37fe",
         username,
         password,
     )
