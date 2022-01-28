@@ -8,7 +8,6 @@ from arcgis.gis import GIS
 from arcgis import features
 from arcgis.features import GeoAccessor
 from arcgis.features import FeatureLayerCollection
-from autoupdater.utils import OverwriteFS
 
 temp_layer_name = "Temp_layer"
 
