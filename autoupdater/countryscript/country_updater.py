@@ -7,6 +7,7 @@ import pandas as pd
 from arcgis.gis import GIS
 from arcgis import features
 from arcgis.features import GeoAccessor
+from arcgis.features import FeatureLayerCollection
 from autoupdater.utils import OverwriteFS
 
 temp_layer_name = "Temp_layer"
@@ -47,13 +48,11 @@ class Country_Updater:
     def update_layers(self):
         self.temp_df.to_csv(self.filename)
         item = self.gis.content.get(self.outputid)
-
-        overwrite_output = OverwriteFS.overwriteFeatureService(
-            item, updateFile=self.filename, touchItems=True, verbose=True
-        )
+        item_layer_collection = FeatureLayerCollection.fromitem(item)
+        response = item_layer_collection.manager.overwrite(self.filename)
 
         delete_output = self.temp_layer.delete()
-        return overwrite_output["success"], delete_output
+        return response["success"], delete_output
 
     def run(self):
         self.get_data()
