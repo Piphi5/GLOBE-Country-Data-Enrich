@@ -1,9 +1,3 @@
-from datetime import datetime
-import numpy as np
-import sys, os
-import pandas as pd
-
-
 from arcgis.gis import GIS
 from arcgis import features
 from arcgis.features import GeoAccessor
