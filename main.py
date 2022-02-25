@@ -7,7 +7,7 @@ username, password = sys.argv[1:]
 mhm_updater = Country_Updater(
     "MosquitoHabitatMapper",
     "ae4990333e9f41f489550ddbe16a9d0f",
-    "82b333d2cbb94de88e63a025447f0ddb",
+    "278ca4c928c84e01b51db91abbe3247b",
     username,
     password,
 )

@@ -1,3 +1,5 @@
+import csv
+
 from arcgis.gis import GIS
 from arcgis import features
 from arcgis.features import GeoAccessor
@@ -36,10 +38,18 @@ class Country_Updater:
         return self.temp_df
 
     def to_csv(self):
-        self.temp_df.to_csv(self.filename)
+        self.temp_df.to_csv(
+            self.filename,
+            sep=",",
+            index=False,
+            encoding="utf-8",
+            quoting=csv.QUOTE_ALL,
+            quotechar='"',
+            escapechar="”",
+        )
 
     def update_layers(self):
-        self.temp_df.to_csv(self.filename)
+        self.to_csv()
         item = self.gis.content.get(self.outputid)
         item_layer_collection = FeatureLayerCollection.fromitem(item)
         response = item_layer_collection.manager.overwrite(self.filename)
