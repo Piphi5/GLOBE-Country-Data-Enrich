@@ -2,7 +2,6 @@ import csv
 import os
 
 from arcgis.gis import GIS
-from arcgis import features
 from arcgis.features import GeoAccessor
 from arcgis.geometry import Geometry
 from arcgis.features import FeatureLayerCollection
@@ -76,6 +75,7 @@ class Country_Updater:
             os.path.join(os.getcwd(), self.filename)
         )
 
+        print(response)
         # Makes sure it was successful in updating the layer
         assert response["success"]
 
