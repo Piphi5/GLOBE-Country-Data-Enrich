@@ -4,7 +4,7 @@ channels:
   - esri
 dependencies:
   - python=3.8
-  - arcgis
+  - arcgis=1.9.1
   - jupyterlab=2
   - nodejs
   - pytest
