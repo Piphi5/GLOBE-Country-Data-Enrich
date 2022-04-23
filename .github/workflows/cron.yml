@@ -4,6 +4,12 @@ name: cronjob
 on:
   schedule:
     - cron: '00 14 * * *'
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'PR ID'
+        required: true
+        default: 'main'
 
 jobs:
   update-data:
