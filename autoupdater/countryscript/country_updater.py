@@ -42,6 +42,7 @@ class Country_Updater:
         print(len(country_map))
 
         self.fix_germany(country_map)
+        print(len(country_map))
 
         self.enriched_df = source_df.spatial.join(country_map)
 
