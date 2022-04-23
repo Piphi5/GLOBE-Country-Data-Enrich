@@ -32,12 +32,14 @@ class Country_Updater:
     def get_data(self):
         data_source = self.gis.content.get(itemid=self.inputid)
         source_df = GeoAccessor.from_layer(data_source.layers[0])
-
+        print(len(source_df))
         # Remove entries with null geometries
         source_df = source_df.dropna(subset=[source_df.spatial.name])
 
+        print(len(source_df))
         countries_item = self.gis.content.get(itemid="2b93b06dc0dc4e809d3c8db5cb96ba69")
         country_map = GeoAccessor.from_layer(countries_item.layers[0])
+        print(len(country_map))
 
         self.fix_germany(country_map)
 
