@@ -55,6 +55,7 @@ class Country_Updater:
             ],
             axis=1,
         )
+        print(len(self.enriched_df))
         self.to_csv()
 
     def to_csv(self):
